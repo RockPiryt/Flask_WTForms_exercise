@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Login</title>
+	</head>
+	<body>
+        <div class="container">
+		<h1>Login</h1>
+        <!-- This is where our form will go. -->
+		<form method="POST" action="{{ url_for('make_login')}}" novalidate>
+			{{ html_form.csrf_token }}
+			<p>
+				{{ html_form.email.label }} <br> {{ html_form.email(size=30) }}
+
+				{% for err in html_form.email.errors %}
+				{{ err }}
+				{% endfor %}
+			</p>
+			<p>
+				{{ html_form.password.label }} <br> {{ html_form.password(size=30) }}
+
+				{% for err in html_form.password.errors %}
+				<span style="color:red">{{ err }}</span>
+				{% endfor %}
+			</p>
+			{{ html_form.submit }}
+		</form>
+        </div>
+	</body>
+</html>
