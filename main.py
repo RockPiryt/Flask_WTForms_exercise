@@ -1,9 +1,15 @@
 from flask import Flask, render_template
 from wtf_form import MyForm
+from flask_bootstrap import Bootstrap5
+
 
 app = Flask(__name__)
-
 app.secret_key = "myPassword"
+bootstrap = Bootstrap5(app)
+
+
+
+
 @app.route("/")
 def home():
     return render_template('index.html')
